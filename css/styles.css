@@ -11,7 +11,99 @@
   - Prioritize accessibility: readable contrast, focus states, usable navigation.
 */
 
-/* Week 1: add base reset + default typography */
-/* Week 2: show control of cascade/specificity */
-/* Week 10–11: refactor layouts using Flexbox and Grid */
-/* Week 14–15: add transitions + keyframe animation (subtle, purposeful) */
+/* 
+Week 1: add base reset + default typography 
+Week 2: show control of cascade/specificity
+Week 10–11: refactor layouts using Flexbox and Grid 
+Week 14–15: add transitions + keyframe animation (subtle, purposeful)
+*/
+
+/* Week 1 (Jan 12 - Jan 18 */
+
+/* 
+--------------------------------------------------------------------
+-----------------------  Simple CSS Reset -------------------------- 
+-------------------------------------------------------------------- */
+/* Removes browser defaults */
+
+/* Step 1: Set Box Sizing - Box sizing reset */
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Step 2: Remove Default Margins - Body margin reset */
+body {
+  margin: 0;
+}
+
+/* Step 3: Set a Base Font Inheritance
+Readable default font, consistent text scale, prevent unexpected font differences */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+/* Step 4: Normalize Images
+Images scale within their containers - no unexpected gaps*/
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Step 5: Optional Basic List Cleanup
+Remove default list spacing */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+-------------------------------------------------------------
+-----------------------  Base Styling -----------------------
+------------------------------------------------------------- */
+/* Establishes project's starting look and feel */
+
+/*Font family, base text color, background color, link styling, light spacing defaulta*
+/* DOES NOT INCLUDE: Flexbox or Grid Layouts, section-by-section, animations or transitions, detailed visual branding. component styling (Cards, buttons, navigation, etc)*/
+
+/* Step 1: Set Global Text Styles */
+body{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222;
+  background-color: #fff;
+}
+
+/* Step 2: Normalize Headings */
+h1, h2, h3, h4, h5, h6 {
+margin: 0 0 0.5em;
+line-height: 1.2;
+}
+
+/* Step 3: Set Paragraph Spacing */
+/* Creates comfortable reading spacing without over-designing */
+p {
+  margin: 0 0 1em;
+}
+
+/* Step 4: Basic Link Styling */
+a{
+  color: #06c;
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+/* Step 5: Container Width */
+/* To prevent from stretching too wide on large screens */
+
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 1rem;
+}
