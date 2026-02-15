@@ -18,17 +18,20 @@ Week 10–11: refactor layouts using Flexbox and Grid
 Week 14–15: add transitions + keyframe animation (subtle, purposeful)
 */
 
-
-/* Week 2 (Jan 19 - Jan 25) */
+:root{
+  --pink:#AC1652;
+  --pink2: #D72D71;
+  --dark-pink:#6c203f;
+  --gray-pink:#764156; 
+  --gray:#434242;
+  
+}
 
 /* 
 --------------------------------------------------------------------
                             1) Reset     
 -------------------------------------------------------------------- */
 /* Removes browser defaults */
-
-/* Week 2 Comment: 
-Placed under reset all the reset rules, including the container widht rule */
 
 /* Set Box Sizing - Box sizing reset */
 /* "*"= every element now gets the box-sizing*/
@@ -58,28 +61,7 @@ ol {
 
 /* 
 --------------------------------------------------------------------
-                         2) Base Styles
--------------------------------------------------------------------- */
-/* Establishes project's starting look and feel */
-
-/* Week 2 Comment: 
-Grouped style candidates for inheritance applied to "body" (font-family, font-size, line-height, color and background color). 
-
-Deleted some duplicated styles for body like the font-family and line-height. This one was located in the Simple CSS reset section from week 1.*/
-
-/* Set a Base Font Inheritance
-Readable default font, consistent text scale, prevent unexpected font differences */
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #222;
-  background-color: #fff;
-}
-
-/* 
---------------------------------------------------------------------
-                         3) Layout Helper
+                         2) Layout Helper
 -------------------------------------------------------------------- */
 
 /* Container Width */
@@ -90,25 +72,50 @@ body {
   padding: 1rem;
 }
 
+/* 
+--------------------------------------------------------------------
+                         3) Base Styles
+-------------------------------------------------------------------- */
+/* Establishes project's starting look and feel */
+
+/* Set a Base Font Inheritance
+Readable default font, consistent text scale, prevent unexpected font differences */
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222;
+  background-color: #fff;
+}
+
 /*
 --------------------------------------------------------------------
                          4) Typography
--------------------------------------------------------------------- */
-/* Week 2 comment: 
-Placed under Typography all the specific styles for headings and paragraphs
+-------------------------------------------------------------------- 
 
-After stablishing the global defaults in "Base Styles" is now time to declare some specificity*/
-
-/* Normalize Headings */
+/* Styling Headings */
 h1, h2, h3, h4, h5, h6 {
-margin: 0 0 0.5em;
 line-height: 1.2;
 }
- 
+
+h1{
+  color: var(--dark-pink);
+  margin: 0 0 0.7em; /*top sides bottom*/
+}
+
+h2{
+  color: var(--pink); 
+  margin: 0 0 0.6em; /*top sides bottom*/
+}
+
+h3, h4, h5, h6{
+  color: var(--gray);
+  margin: 0 0 0.5em; /*top sides bottom*/
+}
 /* Set Paragraph Spacing */
 /* Creates comfortable reading spacing without over-designing */
 p {
-  margin: 0 0 1em;
+  margin-bottom: 1em;
 }
 
 /* 
@@ -117,7 +124,7 @@ p {
 -------------------------------------------------------------------- */
 /* Basic Link Styling */
 a{
-  color: #1a589f;
+  color: var(--pink);
   text-decoration: underline;
 }
 /* 
@@ -125,7 +132,7 @@ a{
                          6) Buttons
 -------------------------------------------------------------------- */
 .btn {
-  background-color: #3d222c;
+  background-color: var(--dark-pink);
   border: none;
   border-radius: 30px;
   color: white;
@@ -136,32 +143,28 @@ a{
 
 .btn-outline {
   background-color: transparent;
-  color: #3d222c;
-  border: 2px solid #3d222c;
+  color: var(--dark-pink);
+  border: 2px solid var(--dark-pink);
 }
-
-/* Week 3 (Jan 26 - Feb 1) */
-/* Advanced Selectors & Pseudo-Classes*/
-
-/* 
+/*
 --------------------------------------------------------------------
                          1) Advanced Selectors
 -------------------------------------------------------------------- */
 /* "nav a" -> Target links inside navigation menu*/
 nav a{
-  color: #764156;
+  color: var(--gray-pink);
 }
 
 /* Style elements based on their context */
 
 /*Increased the size for the text elements inside the hero section to make it stand out as the main focus of the page
 - Used the selector :is(), to select al the elements optimizing code*/
-.hero :is(a, p , li){
-  font-size: 20px ;
+.hero :is(a, p, li){
+  font-size: 1.125em;
 }
 
 .footer-links a{
-  color:#764156;  
+  color:var(--gray-pink);  
 }
 /* 
 --------------------------------------------------------------------
@@ -171,19 +174,22 @@ nav a{
 
 /* Hover states */
 a:hover{
-  text-decoration: underline;
-  color: #c2195d;
+  color: var(--gray-pink);
 }
 
-.btn:hover{
-  background-color: #c2195d;
+/*Simplified code for hover and focus states*/
+.btn:hover,
+.btn:focus{
+  background-color: var(--pink2);
   color: #fff;
   text-decoration: none;
  }
 
-.btn-outline:hover{
-  background-color: #7E495C;
-  border-color: #7E495C;
+.btn-outline:hover,
+.btn-outline:focus{
+  background-color: var(--gray-pink);
+  border-color: var(--gray-pink);
+  color: white;
  }
 
 /* Focus states */
@@ -191,23 +197,14 @@ a:hover{
 
 Better for accessibility by showing focus styles only when appropiate*/
 :focus-visible:is(a, .btn, input, textarea){
-  outline: 2px solid #c2195d; 
-}
-
-.btn:focus{
-  background-color: #c2195d;
-}
-
-.btn-outline:focus{
-  background-color: #7E495C;
-  color: white;
+  outline: 2px solid var(--pink); 
 }
 
  /* Active states */
  .btn:active{
-  background-color: #7E495C;
+  background-color: var(--gray-pink);
  }
 
  .btn-outline:active{
-  background-color: #c2195d;
+  background-color: var(--pink);
  }
