@@ -24,6 +24,7 @@ Week 14–15: add transitions + keyframe animation (subtle, purposeful)
   --dark-pink:#6c203f;
   --gray-pink:#764156; 
   --gray:#434242;
+  --white:#FFFFFF;
   
 }
 
@@ -72,6 +73,21 @@ ol {
   padding: 1rem;
 }
 
+/* ---------------------------- Spacing ------------------------------ */
+.card, .tile{
+  border: 1px solid var(--dark-pink);
+  padding: 1em;
+  margin: 1em 0;
+}
+.panel{
+  padding: 1em 2em;
+  margin: 1em 0 0;
+  background-color: #f6e8ee;
+}
+
+ul, .field{
+  margin: 0 0 1em;
+}
 /* 
 --------------------------------------------------------------------
                          3) Base Styles
@@ -83,9 +99,9 @@ Readable default font, consistent text scale, prevent unexpected font difference
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #222;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 /*
@@ -95,27 +111,28 @@ body {
 
 /* Styling Headings */
 h1, h2, h3, h4, h5, h6 {
-line-height: 1.2;
+  line-height: 1.2;
+  margin-top: 0.5em;
 }
 
 h1{
   color: var(--dark-pink);
-  margin: 0 0 0.7em; /*top sides bottom*/
+  margin-bottom: 0.6m; /*top sides bottom*/
 }
 
 h2{
   color: var(--pink); 
-  margin: 0 0 0.6em; /*top sides bottom*/
+  margin-bottom: 0.5em; /*top sides bottom*/
 }
 
 h3, h4, h5, h6{
   color: var(--gray);
-  margin: 0 0 0.5em; /*top sides bottom*/
+  margin-bottom: 0.4em; /*top sides bottom*/
 }
 /* Set Paragraph Spacing */
 /* Creates comfortable reading spacing without over-designing */
 p {
-  margin-bottom: 1em;
+  margin: 0 0 0.8em;
 }
 
 /* 
@@ -131,13 +148,16 @@ a{
 --------------------------------------------------------------------
                          6) Buttons
 -------------------------------------------------------------------- */
+.btn, .btn-outline{
+  margin: 0.5em 0;
+}
 .btn {
   background-color: var(--dark-pink);
   border: none;
   border-radius: 30px;
   color: white;
   display: inline-block;
-  padding: 10px 15px;
+  padding: 0.75em 1em;
   text-decoration: none;
 }
 
@@ -146,6 +166,7 @@ a{
   color: var(--dark-pink);
   border: 2px solid var(--dark-pink);
 }
+
 /*
 --------------------------------------------------------------------
                          1) Advanced Selectors
