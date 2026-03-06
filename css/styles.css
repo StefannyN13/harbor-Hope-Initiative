@@ -11,8 +11,8 @@
   --light-gray:#f3f3f3;
 
   --light-orange:#F9E1CD;
-  --medium-orange:#F29340;
-  --orange:#f5761b;
+  --medium-orange:#F5B67F;
+  --orange:#F29340;
 }
 
 /* 
@@ -30,7 +30,6 @@
 /* Remove Default Margins - Body margin reset */
 body {
   margin: 0;
-
 }
 
 /* Normalize Images
@@ -81,6 +80,11 @@ ol {
 ul, .field{
   margin: 0 1em 1em;
 }
+
+nav ul{
+  margin: 0;
+}
+
 /* 
 --------------------------------------------------------------------
                          3) Base Styles
@@ -109,10 +113,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1{
+  color: var(--medium-orange);
  /*Text with gradient*/
-  background-image: linear-gradient(to bottom, var(--light-orange), var(--medium-orange));
+ /* background-image: linear-gradient(to bottom, var(--light-orange), var(--medium-orange));
   background-clip: text;
-  color: transparent;
+  color: transparent;*/
   margin-bottom: 0.6em; /*top sides bottom*/
 }
 
@@ -158,11 +163,6 @@ a{
 }
 
 .btn-outline {
-  /*background-image: none;
-  background-color: transparent;
-  border-radius: 30px;
-  border: 2px solid var(--pink2);*/
-
   background-image: none;
   border-radius: 30px;
   border: 2px solid var(--pink2);
@@ -175,11 +175,7 @@ a{
 /* "nav a" -> Target links inside navigation menu*/
 nav a{
   color: var(--gray-pink);
-  display: inline-block;
-}
-.brand{
-  color: var(--pink);
-  text-decoration: none;
+  display: block;
 }
 
 #get-involved h3{
@@ -205,10 +201,10 @@ nav a{
 /*Interaction states provide a clear visual feedback for user interactions */
 
 /* Hover states */
-a:hover{
+a:hover, a:focus{
   color: var(--dark-pink);
 }
-nav a:hover{
+nav a:hover, nav a:focus{
   color: var(--pink);
 }
 
@@ -233,7 +229,7 @@ nav a:hover{
 /* :focus-visible -> outline does not appear when mouse users interact with the elements.
 Better for accessibility by showing focus styles only when appropiate*/
 :focus-visible:is(a, .btn, input, textarea){
-  outline: 2px solid var(--pink); 
+  outline: 2px solid #EE72A3; 
 }
 
  /* Active states */
@@ -248,20 +244,20 @@ Better for accessibility by showing focus styles only when appropiate*/
 /* --------------------------------------------------------------------
                       1) Background and Gradients
 -------------------------------------------------------------------- */
-.site-header{
-  background-color: var(--light-pink3);
-}
-
 .hero{
-  background: linear-gradient(to right, var(--overlay-dark-pink) 50%, rgba(0,0,0,0.1)), 
+  background: linear-gradient(to right, var(--overlay-dark-pink) 60%, rgba(0,0,0,0.1)), 
     url("../images/Hero2.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   color: white;
   min-height: 80vh;
+  align-content: center;
 }
 
+.hero-content{
+  max-width: 50rem;
+}
 #programs{
   background-color: var(--light-pink3)
 }
@@ -276,6 +272,7 @@ Better for accessibility by showing focus styles only when appropiate*/
   background-repeat: no-repeat;
   color: white;
   min-height: 30vh;
+  align-content: center;
 }
 
 #Volunteer{
@@ -300,4 +297,60 @@ Better for accessibility by showing focus styles only when appropiate*/
 
 .site-footer{
   background-color: var(--light-gray);
+}
+
+/* --------------------------------------------------------------------
+                      Navigation Bar
+-------------------------------------------------------------------- */
+.site-header a{
+  text-decoration: none;
+  padding: 10px;
+}
+.site-nav li{
+  list-style-type: none;
+  margin: 0;
+  display: inline-block;
+  margin-left: 25px;
+  padding: 5px;
+  font-weight: 600;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  background-color: var(--dark-pink);
+  color: white;
+}
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand{
+  font-weight: bold;
+}
+.brand{
+  color: var(--pink);
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+.brand:focus{
+  background-color: var(--pink2);
+  color: white;
+}
+
+
+@media (max-width: 700px){
+  
+  .hero{
+    background: linear-gradient(to right, var(--overlay-dark-pink) 50%, rgba(0,0,0,0.8)), 
+    url("../images/Hero2.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 80vh;
+    align-content: center;
+  }
+  
 }
