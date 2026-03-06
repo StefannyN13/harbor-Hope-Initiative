@@ -175,6 +175,7 @@ a{
 /* "nav a" -> Target links inside navigation menu*/
 nav a{
   color: var(--gray-pink);
+  display: inline-block;
 }
 .brand{
   color: var(--pink);
@@ -253,7 +254,7 @@ Better for accessibility by showing focus styles only when appropiate*/
 
 .hero{
   background: linear-gradient(to right, var(--overlay-dark-pink) 50%, rgba(0,0,0,0.1)), 
-    url("/images/Hero2.jpg");
+    url("../images/Hero2.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -279,18 +280,18 @@ Better for accessibility by showing focus styles only when appropiate*/
 
 #Volunteer{
   background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
-    url("/images/volunteer.jpg");
+    url("../images/volunteer.jpg");
 }
 
 #Partner{
   background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
-    url("/images/partner.jpg");
+    url("../images/partner.jpg");
 
 }
 
 #Share{
   background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
-    url("/images/share.jpg");
+    url("../images/share.jpg");
 }
 
 #contact{
