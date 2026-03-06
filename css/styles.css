@@ -1,31 +1,18 @@
-/*
-  ADVANCED CSS ITERATION PROJECT (NONPROFIT)
-
-  Your job: modernize the design over time using advanced CSS.
-  Most weekly changes happen here.
-
-  Ground rules:
-  - Keep CSS organized by section.
-  - Demonstrate intentional use of cascade/specificity.
-  - Make it responsive.
-  - Prioritize accessibility: readable contrast, focus states, usable navigation.
-*/
-
-/* 
-Week 1: add base reset + default typography 
-Week 2: show control of cascade/specificity
-Week 10–11: refactor layouts using Flexbox and Grid 
-Week 14–15: add transitions + keyframe animation (subtle, purposeful)
-*/
-
 :root{
-  --pink:#AC1652;
-  --pink2: #D72D71;
-  --dark-pink:#6c203f;
-  --gray-pink:#764156; 
-  --gray:#434242;
-  --white:#FFFFFF;
   
+  --pink:#B51756;
+  --pink2: #DD1D6A;
+  --light-pink3:#f7eaef;
+  --overlay-dark-pink:rgba(27, 0, 4, 0.9);
+
+  --dark-pink:#570828;
+  --gray-pink:#764156; 
+  --gray:#2c2b2b;
+  --light-gray:#f3f3f3;
+
+  --light-orange:#F9E1CD;
+  --medium-orange:#F29340;
+  --orange:#f5761b;
 }
 
 /* 
@@ -43,6 +30,7 @@ Week 14–15: add transitions + keyframe animation (subtle, purposeful)
 /* Remove Default Margins - Body margin reset */
 body {
   margin: 0;
+
 }
 
 /* Normalize Images
@@ -50,6 +38,7 @@ Images scale within their containers - no unexpected gaps*/
 img {
   max-width: 100%;
   display: block;
+  object-fit: cover;
 }
 
 /* Optional Basic List Cleanup
@@ -76,17 +65,21 @@ ol {
 /* ---------------------------- Spacing ------------------------------ */
 .card, .tile{
   border: 1px solid var(--dark-pink);
+  background-color: white;
+  border-radius: 20px;
   padding: 1em;
   margin: 1em 0;
 }
+
 .panel{
+  border-radius: 10px;
   padding: 1em 2em;
   margin: 1em 0 0;
-  background-color: #f6e8ee;
+  background-color: var(--light-gray);
 }
 
 ul, .field{
-  margin: 0 0 1em;
+  margin: 0 1em 1em;
 }
 /* 
 --------------------------------------------------------------------
@@ -101,7 +94,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: #222;
-  background-color: var(--white);
+  background-color: white;
 }
 
 /*
@@ -116,8 +109,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1{
-  color: var(--dark-pink);
-  margin-bottom: 0.6m; /*top sides bottom*/
+ /*Text with gradient*/
+  background-image: linear-gradient(to bottom, var(--light-orange), var(--medium-orange));
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.6em; /*top sides bottom*/
 }
 
 h2{
@@ -141,7 +137,7 @@ p {
 -------------------------------------------------------------------- */
 /* Basic Link Styling */
 a{
-  color: var(--pink);
+  color: var(--pink2);
   text-decoration: underline;
 }
 /* 
@@ -152,7 +148,7 @@ a{
   margin: 0.5em 0;
 }
 .btn {
-  background-color: var(--dark-pink);
+  background-image: linear-gradient(to bottom, var(--pink) 60%, var(--orange));
   border: none;
   border-radius: 30px;
   color: white;
@@ -162,9 +158,14 @@ a{
 }
 
 .btn-outline {
+  /*background-image: none;
   background-color: transparent;
-  color: var(--dark-pink);
-  border: 2px solid var(--dark-pink);
+  border-radius: 30px;
+  border: 2px solid var(--pink2);*/
+
+  background-image: none;
+  border-radius: 30px;
+  border: 2px solid var(--pink2);
 }
 
 /*
@@ -175,6 +176,14 @@ a{
 nav a{
   color: var(--gray-pink);
 }
+.brand{
+  color: var(--pink);
+  text-decoration: none;
+}
+
+#get-involved h3{
+  color: orange;
+}
 
 /* Style elements based on their context */
 
@@ -183,6 +192,7 @@ nav a{
 .hero :is(a, p, li){
   font-size: 1.125em;
 }
+
 
 .footer-links a{
   color:var(--gray-pink);  
@@ -195,27 +205,31 @@ nav a{
 
 /* Hover states */
 a:hover{
-  color: var(--gray-pink);
+  color: var(--dark-pink);
+}
+nav a:hover{
+  color: var(--pink);
 }
 
 /*Simplified code for hover and focus states*/
 .btn:hover,
 .btn:focus{
-  background-color: var(--pink2);
+  /*background-image: none;*/
+  background-image: linear-gradient(to bottom , var(--pink2), var(--pink));
+  /*background-color: var(--pink2);*/
   color: #fff;
-  text-decoration: none;
  }
 
 .btn-outline:hover,
 .btn-outline:focus{
-  background-color: var(--gray-pink);
-  border-color: var(--gray-pink);
-  color: white;
+  /*background-image: linear-gradient(to top , var(--dark-pink) 20%, var(--pink));*/
+  background-image: none;
+  background-color: var(--pink2);
+  border-color: var(--pink);
  }
 
 /* Focus states */
 /* :focus-visible -> outline does not appear when mouse users interact with the elements.
-
 Better for accessibility by showing focus styles only when appropiate*/
 :focus-visible:is(a, .btn, input, textarea){
   outline: 2px solid var(--pink); 
@@ -229,3 +243,60 @@ Better for accessibility by showing focus styles only when appropiate*/
  .btn-outline:active{
   background-color: var(--pink);
  }
+
+/* --------------------------------------------------------------------
+                      1) Background and Gradients
+-------------------------------------------------------------------- */
+.site-header{
+  background-color: var(--light-pink3);
+}
+
+.hero{
+  background: linear-gradient(to right, var(--overlay-dark-pink) 50%, rgba(0,0,0,0.1)), 
+    url("/images/Hero2.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 80vh;
+}
+
+#programs{
+  background-color: var(--light-pink3)
+}
+
+#get-involved{
+  background-color: var(--light-pink3);
+}
+
+#Volunteer, #Partner, #Share {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 30vh;
+}
+
+#Volunteer{
+  background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
+    url("/images/volunteer.jpg");
+}
+
+#Partner{
+  background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
+    url("/images/partner.jpg");
+
+}
+
+#Share{
+  background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
+    url("/images/share.jpg");
+}
+
+#contact{
+  background-color: var(--light-pink3);
+}
+
+.site-footer{
+  background-color: var(--light-gray);
+}
