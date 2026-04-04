@@ -1,22 +1,4 @@
-:root{
-  
-  --pink:#B51756;
-  --pink2: #DD1D6A;
-  --light-pink3:#f7eaef;
-  --overlay-dark-pink:rgba(27, 0, 4, 0.9);
-
-  --dark-pink:#570828;
-  --gray-pink:#764156; 
-  --gray:#2c2b2b;
-  --light-gray:#f3f3f3;
-
-  --light-orange:#F9E1CD;
-  --medium-orange:#F5B67F;
-  --orange:#F29340;
-}
-
-/* 
---------------------------------------------------------------------
+/* --------------------------------------------------------------------
                             1) Reset     
 -------------------------------------------------------------------- */
 /* Removes browser defaults */
@@ -48,48 +30,33 @@ ol {
   padding: 0;
 }
 
-/* 
---------------------------------------------------------------------
-                         2) Layout Helper
--------------------------------------------------------------------- */
-
-/* Container Width */
-/* To prevent from stretching too wide on large screens */
-.container {
-  max-width: 1200px;
-  margin-inline: auto;
-  padding: 1rem;
-}
-
-/* ---------------------------- Spacing ------------------------------ */
-.card, .tile{
-  border: 1px solid var(--dark-pink);
-  background-color: white;
-  border-radius: 20px;
-  padding: 1em;
-  margin: 1em 0;
-}
-
-.panel{
-  border-radius: 10px;
-  padding: 1em 2em;
-  margin: 1em 0 0;
-  background-color: var(--light-gray);
-}
-
-ul, .field{
-  margin: 0 1em 1em;
-}
-
-nav ul{
-  margin: 0;
-}
-
-/* 
---------------------------------------------------------------------
-                         3) Base Styles
+/*--------------------------------------------------------------------
+                         2) Base Styles
 -------------------------------------------------------------------- */
 /* Establishes project's starting look and feel */
+/*Color variables*/
+:root{
+  /* Base Colors */
+  --color-primary:#B51756; /* Pink */
+  --color-primary-light: #DD1D6A; /* Ligth pink */
+  --color-primary-dark:#570828; /* Dark pink */
+  
+  /* Accent colors */
+  --color-accent:#F29340; /*Orange*/
+  --color-accent-light:#F5B67F; /*Light orange */
+
+
+/* Backgrounds */
+  --color-bg-light:#f3f3f3; /* */
+  --color-bg-section:#f7eaef; /* Soft Pink*/
+
+/* Text */
+  --color-text-main:#2c2b2b;
+  --color-text:#764156; 
+  
+/* Overlays */
+  --overlay-dark-pink:rgba(27, 0, 4, 0.9); 
+}
 
 /* Set a Base Font Inheritance
 Readable default font, consistent text scale, prevent unexpected font differences */
@@ -101,9 +68,8 @@ body {
   background-color: white;
 }
 
-/*
---------------------------------------------------------------------
-                         4) Typography
+/* --------------------------------------------------------------------
+                         3) Typography
 -------------------------------------------------------------------- 
 
 /* Styling Headings */
@@ -113,21 +79,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1{
-  color: var(--medium-orange);
- /*Text with gradient*/
- /* background-image: linear-gradient(to bottom, var(--light-orange), var(--medium-orange));
-  background-clip: text;
-  color: transparent;*/
+  color: var(--color-accent-light);
   margin-bottom: 0.6em; /*top sides bottom*/
 }
 
 h2{
-  color: var(--pink); 
+  color: var(--color-primary); 
   margin-bottom: 0.5em; /*top sides bottom*/
 }
 
 h3, h4, h5, h6{
-  color: var(--gray);
+  color: var(--color-text-main);
   margin-bottom: 0.4em; /*top sides bottom*/
 }
 /* Set Paragraph Spacing */
@@ -136,41 +98,18 @@ p {
   margin: 0 0 0.8em;
 }
 
-/* 
---------------------------------------------------------------------
-                         5) Links
--------------------------------------------------------------------- */
 /* Basic Link Styling */
 a{
-  color: var(--pink2);
+  color: var(--color-primary-light);
   text-decoration: underline;
 }
-/* 
---------------------------------------------------------------------
-                         6) Buttons
--------------------------------------------------------------------- */
-.btn, .btn-outline{
-  margin: 0.5em 0;
-}
-.btn {
-  background-image: linear-gradient(to bottom, var(--pink) 60%, var(--orange));
-  border: none;
-  border-radius: 30px;
-  color: white;
-  display: inline-block;
-  padding: 0.75em 1em;
-  text-decoration: none;
+
+#get-involved h3{
+  color: orange;
 }
 
-.btn-outline {
-  background-image: none;
-  border-radius: 30px;
-  border: 2px solid var(--pink2);
-}
-
-/*
---------------------------------------------------------------------
-                         1) Advanced Selectors
+/* --------------------------------------------------------------------
+                         4) Navigation
 -------------------------------------------------------------------- */
 /* "nav a" -> Target links inside navigation menu*/
 nav a{
@@ -178,11 +117,43 @@ nav a{
   display: block;
 }
 
-#get-involved h3{
-  color: orange;
+.site-header a{
+  text-decoration: none;
+  padding: 10px;
+}
+.site-nav li{
+  list-style-type: none;
+  display: inline-block;
+  margin-left: 25px;
+  padding: 5px;
+  font-weight: 600;
 }
 
-/* Style elements based on their context */
+.site-nav a:hover,
+.site-nav a:focus {
+  background-color: var(--color-primary-dark);
+  color: white;
+}
+.header-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand{
+  color: var(--color-primary);
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+.brand:focus{
+  background-color: var(--color-primary-light);
+  color: white;
+}
+
+/* --------------------------------------------------------------------
+                         5) Sections
+-------------------------------------------------------------------- */
+/* HERO  */
 
 /*Increased the size for the text elements inside the hero section to make it stand out as the main focus of the page
 - Used the selector :is(), to select al the elements optimizing code*/
@@ -190,60 +161,6 @@ nav a{
   font-size: 1.125em;
 }
 
-
-.footer-links a{
-  color:var(--gray-pink);  
-}
-/* 
---------------------------------------------------------------------
-                         2) Interaction States
--------------------------------------------------------------------- */
-/*Interaction states provide a clear visual feedback for user interactions */
-
-/* Hover states */
-a:hover, a:focus{
-  color: var(--dark-pink);
-}
-nav a:hover, nav a:focus{
-  color: var(--pink);
-}
-
-/*Simplified code for hover and focus states*/
-.btn:hover,
-.btn:focus{
-  /*background-image: none;*/
-  background-image: linear-gradient(to bottom , var(--pink2), var(--pink));
-  /*background-color: var(--pink2);*/
-  color: #fff;
- }
-
-.btn-outline:hover,
-.btn-outline:focus{
-  /*background-image: linear-gradient(to top , var(--dark-pink) 20%, var(--pink));*/
-  background-image: none;
-  background-color: var(--pink2);
-  border-color: var(--pink);
- }
-
-/* Focus states */
-/* :focus-visible -> outline does not appear when mouse users interact with the elements.
-Better for accessibility by showing focus styles only when appropiate*/
-:focus-visible:is(a, .btn, input, textarea){
-  outline: 2px solid #EE72A3; 
-}
-
- /* Active states */
- .btn:active{
-  background-color: var(--gray-pink);
- }
-
- .btn-outline:active{
-  background-color: var(--pink);
- }
-
-/* --------------------------------------------------------------------
-                      1) Background and Gradients
--------------------------------------------------------------------- */
 .hero{
   background: linear-gradient(to right, var(--overlay-dark-pink) 60%, rgba(0,0,0,0.1)), 
     url("../images/Hero2.jpg");
@@ -258,13 +175,12 @@ Better for accessibility by showing focus styles only when appropiate*/
 .hero-content{
   max-width: 50rem;
 }
-#programs{
-  background-color: var(--light-pink3)
+
+/* PROGRAMS, GET INVOLVED, CONTACT*/
+#programs, #get-involved, #contact{
+  background-color: var(--color-bg-section)
 }
 
-#get-involved{
-  background-color: var(--light-pink3);
-}
 
 #Volunteer, #Partner, #Share {
   background-size: cover;
@@ -291,55 +207,114 @@ Better for accessibility by showing focus styles only when appropiate*/
     url("../images/share.jpg");
 }
 
-#contact{
-  background-color: var(--light-pink3);
+
+/* FOOTER */
+.site-footer{
+  background-color: var(--color-bg-light);
 }
 
-.site-footer{
-  background-color: var(--light-gray);
+.footer-links a{
+  color:var(--gray-pink);  
 }
 
 /* --------------------------------------------------------------------
-                      Navigation Bar
+                         6) Utilities
 -------------------------------------------------------------------- */
-.site-header a{
-  text-decoration: none;
-  padding: 10px;
+/*LAYOUT HELPER*/
+/* Container Width */
+/* To prevent from stretching too wide on large screens */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 1rem;
 }
-.site-nav li{
-  list-style-type: none;
-  margin: 0;
+
+/* ---------------------------- Spacing ------------------------------ */
+.card, .tile{
+  border: 1px solid var(--color-primary-dark);
+  background-color: white;
+  border-radius: 20px;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+.panel{
+  border-radius: 10px;
+  padding: 1em 2em;
+  margin: 1em 0;
+  background-color: var(--color-bg-light);
+}
+
+.field{
+  margin: 0 1em 1em;
+}
+
+/* BUTTONS */
+.btn, .btn-outline{
+  margin: 0.5em 0;
+}
+.btn {
+  background-image: linear-gradient(to bottom, var(--color-primary) 60%, var(--color-accent));
+  border: none;
+  border-radius: 30px;
+  color: white;
   display: inline-block;
-  margin-left: 25px;
-  padding: 5px;
-  font-weight: 600;
+  padding: 0.75em 1em;
+  text-decoration: none;
 }
 
-.site-nav a:hover,
-.site-nav a:focus {
-  background-color: var(--dark-pink);
-  color: white;
-}
-.header-inner{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.btn-outline {
+  background-image: none;
+  border: 2px solid var(--color-primary-light);
 }
 
-.brand{
-  font-weight: bold;
+/* INTERACTION STATES*/ 
+/*Interaction states provide a clear visual feedback for user interactions */
+
+/* Hover states */
+a:hover, a:focus{
+  color: var(--color-primary-dark);
 }
-.brand{
-  color: var(--pink);
-  font-weight: bolder;
-  font-size: 1.2em;
-}
-.brand:focus{
-  background-color: var(--pink2);
-  color: white;
+nav a:hover, nav a:focus{
+  color: var(--color-primary);
 }
 
+/*Simplified code for hover and focus states*/
+.btn:hover,
+.btn:focus{
+  /*background-image: none;*/
+  background-image: linear-gradient(to bottom , var(--color-primary-light), var(--color-primary));
+  /*background-color: var(--pink2);*/
+  color: #fff;
+ }
 
+.btn-outline:hover,
+.btn-outline:focus{
+  /*background-image: linear-gradient(to top , var(--dark-pink) 20%, var(--color-primary));*/
+  background-image: none;
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+ }
+
+/* Focus states */
+/* :focus-visible -> outline does not appear when mouse users interact with the elements.
+Better for accessibility by showing focus styles only when appropiate*/
+:focus-visible:is(a, .btn, input, textarea){
+  outline: 2px solid #EE72A3; 
+}
+
+ /* Active states */
+.btn:active{
+  background-color: var(--gray-pink);
+}
+
+.btn-outline:active{
+  background-color: var(--color-primary);
+}
+
+/* --------------------------------------------------------------------
+                         7) Responsiveness
+-------------------------------------------------------------------- */
 @media (max-width: 700px){
   
   .hero{
@@ -352,5 +327,4 @@ Better for accessibility by showing focus styles only when appropiate*/
     min-height: 80vh;
     align-content: center;
   }
-  
 }
