@@ -28,6 +28,7 @@ ul,
 ol {
   margin: 0;
   padding: 0;
+  padding-left: 1em;
 }
 
 /*--------------------------------------------------------------------
@@ -150,6 +151,15 @@ nav a{
   color: white;
 }
 
+.site-header{
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+
 /* --------------------------------------------------------------------
                          5) Sections
 -------------------------------------------------------------------- */
@@ -162,26 +172,34 @@ nav a{
 }
 
 .hero{
+  position: relative;
   background: linear-gradient(to right, var(--overlay-dark-pink) 60%, rgba(0,0,0,0.1)), 
     url("../images/Hero2.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   color: white;
-  min-height: 80vh;
-  align-content: center;
+  min-height: 90vh;
 }
 
 .hero-content{
+  position: absolute;
+  top: 50%;
+  padding: 1rem; /*to fix the padding applied to other elements*/
+  transform: translateY(-50%); /* To center the content, controling vertical positioning*/
   max-width: 50rem;
 }
 
+/* MAIN */ 
+
+
+
 /* PROGRAMS, GET INVOLVED, CONTACT*/
 #programs, #get-involved, #contact{
-  background-color: var(--color-bg-section)
+  background-color: var(--color-bg-section);
 }
 
-
+/*GET INVOLVED */
 #Volunteer, #Partner, #Share {
   background-size: cover;
   background-position: center;
@@ -192,6 +210,7 @@ nav a{
 }
 
 #Volunteer{
+  position: relative;
   background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
     url("../images/volunteer.jpg");
 }
@@ -200,6 +219,17 @@ nav a{
   background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
     url("../images/partner.jpg");
 
+}
+
+.label{
+  position: absolute;
+  top: 5px;
+  right:5px;
+  background-color: var(--color-accent-light);
+  font-weight: bold;
+  color: var(--color-primary-dark);
+  border-radius: 10px;
+  padding: 0.5em;
 }
 
 #Share{
@@ -312,9 +342,30 @@ Better for accessibility by showing focus styles only when appropiate*/
   background-color: var(--color-primary);
 }
 
+/* Donate button */
+.Fixed-donate-btn{
+  background-color: var(--color-primary-light);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 0.75em 1em;
+
+  position:fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.Fixed-donate-btn:hover{
+  background-color: var(--color-primary-dark);
+  color: white;
+}
+
 /* --------------------------------------------------------------------
                          7) Responsiveness
 -------------------------------------------------------------------- */
+
 @media (max-width: 700px){
   
   .hero{
@@ -325,6 +376,11 @@ Better for accessibility by showing focus styles only when appropiate*/
     background-repeat: no-repeat;
     color: white;
     min-height: 80vh;
-    align-content: center;
   }
+  .hero-content{
+    position: relative;
+    top:auto;
+    transform: none;
+    max-width: 100%;
+  }  
 }
