@@ -118,11 +118,11 @@ nav a{
   display: block;
 }
 
-.site-header a{
+.site-header a, .site-footer a{
   text-decoration: none;
   padding: 10px;
 }
-.site-nav li{
+.site-nav li, .site-footer li{
   list-style-type: none;
   display: inline-block;
   margin-left: 25px;
@@ -135,7 +135,7 @@ nav a{
   background-color: var(--color-primary-dark);
   color: white;
 }
-.header-inner{
+.header-inner, .footer-inner{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -164,8 +164,7 @@ nav a{
                          5) Sections
 -------------------------------------------------------------------- */
 /* HERO  */
-
-/*Increased the size for the text elements inside the hero section to make it stand out as the main focus of the page
+/* Increased the size for the text elements inside the hero section to make it stand out as the main focus of the page
 - Used the selector :is(), to select al the elements optimizing code*/
 .hero :is(a, p, li){
   font-size: 1.125em;
@@ -192,11 +191,22 @@ nav a{
 
 /* MAIN */ 
 
-
-
 /* PROGRAMS, GET INVOLVED, CONTACT*/
 #programs, #get-involved, #contact{
   background-color: var(--color-bg-section);
+}
+
+/* IMPACT */
+.stat{
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--color-primary-dark);
+}
+.stat-number{
+  display: block;
+  font-weight: bold;
+  font-size: x-large;
+  color: var(--color-primary-dark);
 }
 
 /*GET INVOLVED */
@@ -211,20 +221,19 @@ nav a{
 
 #Volunteer{
   position: relative;
-  background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
+  background-image: linear-gradient(to right, var(--overlay-dark-pink) 42%, rgba(0,0,0,0.1)), 
     url("../images/volunteer.jpg");
 }
 
 #Partner{
-  background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
+  background-image: linear-gradient(to right, var(--overlay-dark-pink) 42%, rgba(0,0,0,0.1)), 
     url("../images/partner.jpg");
-
 }
 
 .label{
   position: absolute;
-  top: 5px;
-  right:5px;
+  top: 15px;
+  right:15px;
   background-color: var(--color-accent-light);
   font-weight: bold;
   color: var(--color-primary-dark);
@@ -233,7 +242,7 @@ nav a{
 }
 
 #Share{
-  background-image: linear-gradient(to right, var(--overlay-dark-pink) 20%, rgba(0,0,0,0.1)), 
+  background-image: linear-gradient(to right, var(--overlay-dark-pink) 42%, rgba(0,0,0,0.1)), 
     url("../images/share.jpg");
 }
 
@@ -261,7 +270,7 @@ nav a{
 
 /* ---------------------------- Spacing ------------------------------ */
 .card, .tile{
-  border: 1px solid var(--color-primary-dark);
+  /*border: 1px solid var(--color-primary-dark);*/
   background-color: white;
   border-radius: 20px;
   padding: 1em;
@@ -279,10 +288,27 @@ nav a{
   margin: 0 1em 1em;
 }
 
+/* ---------------------------- Flexbox - Layout ------------------------------ */
+
+/* MISSION, PROGAMS, IMPACT, GET INVOLVED  */
+.two-col, .cards, .opportunities, .stats{
+  display: flex;
+  flex-direction: column; 
+}
+
+.panel, .tile, .stat, .card{
+  flex: 1;
+}
+
+.stats{
+  gap: 1rem;
+}
+
 /* BUTTONS */
 .btn, .btn-outline{
   margin: 0.5em 0;
 }
+
 .btn {
   background-image: linear-gradient(to bottom, var(--color-primary) 60%, var(--color-accent));
   border: none;
@@ -366,7 +392,15 @@ Better for accessibility by showing focus styles only when appropiate*/
                          7) Responsiveness
 -------------------------------------------------------------------- */
 
-@media (max-width: 700px){
+
+@media (min-width: 768px){
+  .two-col, .cards, .stats, .opportunities, .footer-inner{
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap:1rem;
+  }
+}
+@media (max-width: 767px){
   
   .hero{
     background: linear-gradient(to right, var(--overlay-dark-pink) 50%, rgba(0,0,0,0.8)), 
@@ -383,4 +417,7 @@ Better for accessibility by showing focus styles only when appropiate*/
     transform: none;
     max-width: 100%;
   }  
+
+  
+
 }
