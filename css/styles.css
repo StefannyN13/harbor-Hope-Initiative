@@ -246,6 +246,24 @@ nav a{
     url("../images/share.jpg");
 }
 
+/* DONATE */
+.donate-form{
+  background-color: var(--color-bg-light);
+  padding: 20px;
+  font-weight: bold;
+}
+textarea, input{
+  display: block;
+  width: 100%;
+}
+.radio-row{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+}
+.fineprint{
+  font-weight:500;
+}
 
 /* FOOTER */
 .site-footer{
@@ -285,23 +303,29 @@ nav a{
 }
 
 .field{
-  margin: 0 1em 1em;
+  margin: 1em 0 ;
 }
 
 /* ---------------------------- Flexbox - Layout ------------------------------ */
 
 /* MISSION, PROGAMS, IMPACT, GET INVOLVED  */
-.two-col, .cards, .opportunities, .stats{
+.two-col, .stats{
   display: flex;
   flex-direction: column; 
 }
 
-.panel, .tile, .stat, .card{
+.panel, .tile, .stat{
   flex: 1;
 }
 
 .stats{
   gap: 1rem;
+}
+/* ----------------------------- Grid - Layout ------------------------------- */
+.cards, .opportunities, .donate-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
 }
 
 /* BUTTONS */
@@ -312,7 +336,7 @@ nav a{
 .btn {
   background-image: linear-gradient(to bottom, var(--color-primary) 60%, var(--color-accent));
   border: none;
-  border-radius: 30px;
+  border-radius: 20px;
   color: white;
   display: inline-block;
   padding: 0.75em 1em;
@@ -391,13 +415,21 @@ Better for accessibility by showing focus styles only when appropiate*/
 /* --------------------------------------------------------------------
                          7) Responsiveness
 -------------------------------------------------------------------- */
-
-
 @media (min-width: 768px){
-  .two-col, .cards, .stats, .opportunities, .footer-inner{
+  .two-col, .stats, .footer-inner{
     flex-direction: row;
     flex-wrap: wrap;
     gap:1rem;
+  }
+
+  .cards, .opportunities{
+    grid-template-columns: repeat(3,1fr);
+    gap: 0 1rem;
+  }
+
+  .donate-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 }
 @media (max-width: 767px){
@@ -417,7 +449,4 @@ Better for accessibility by showing focus styles only when appropiate*/
     transform: none;
     max-width: 100%;
   }  
-
-  
-
 }
