@@ -71,7 +71,7 @@ body {
 
 /* --------------------------------------------------------------------
                          3) Typography
--------------------------------------------------------------------- 
+----------------------------------------------------------------------*/
 
 /* Styling Headings */
 h1, h2, h3, h4, h5, h6 {
@@ -124,7 +124,7 @@ nav a{
 }
 .site-nav li, .site-footer li{
   list-style-type: none;
-  display: inline-block;
+  display: block;
   margin-left: 25px;
   padding: 5px;
   font-weight: 600;
@@ -137,7 +137,8 @@ nav a{
 }
 .header-inner, .footer-inner{
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: start;
   justify-content: space-between;
 }
 
@@ -169,25 +170,21 @@ nav a{
 .hero :is(a, p, li){
   font-size: 1.125em;
 }
-
-.hero{
-  position: relative;
-  background: linear-gradient(to right, var(--overlay-dark-pink) 60%, rgba(0,0,0,0.1)), 
+  .hero{
+    background: linear-gradient(to right, var(--overlay-dark-pink) 50%, rgba(0,0,0,0.8)), 
     url("../images/Hero2.jpg");
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-  color: white;
-  min-height: 90vh;
-}
-
-.hero-content{
-  position: absolute;
-  top: 50%;
-  padding: 1rem; /*to fix the padding applied to other elements*/
-  transform: translateY(-50%); /* To center the content, controling vertical positioning*/
-  max-width: 50rem;
-}
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 50vh;
+  }
+  .hero-content{
+    position: relative;
+    top:auto;
+    transform: none;
+    max-width: 100%;
+  }  
 
 /* MAIN */ 
 
@@ -268,6 +265,10 @@ textarea, input{
 /* FOOTER */
 .site-footer{
   background-color: var(--color-bg-light);
+}
+
+.footer-links{
+  display: flex;
 }
 
 .footer-links a{
@@ -414,8 +415,35 @@ Better for accessibility by showing focus styles only when appropiate*/
 /* --------------------------------------------------------------------
                          7) Responsiveness
 -------------------------------------------------------------------- */
+/* Tablet Width*/
 @media (min-width: 768px){
-  .two-col, .stats, .footer-inner{
+  .hero{
+    position: relative;
+    background: linear-gradient(to right, var(--overlay-dark-pink) 60%, rgba(0,0,0,0.1)), 
+      url("../images/Hero2.jpg");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: white;
+    min-height: 70vh;
+  }
+
+  .hero-content{
+    position: absolute;
+    top: 50%;
+    padding: 1rem; /*to fix the padding applied to other elements*/
+    transform: translateY(-50%); /* To center the content, controling vertical positioning*/
+    max-width: 50rem;
+  }
+
+  .header-inner, .footer-inner{
+    flex-direction: row;
+  }
+
+  .site-nav li{
+    display: inline-block;
+  }
+  .two-col, .stats{
     flex-direction: row;
     flex-wrap: wrap;
     gap:1rem;
@@ -429,21 +457,18 @@ Better for accessibility by showing focus styles only when appropiate*/
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 767px){
-  
+/* Desktop */
+@media (min-width: 1024px){
+
   .hero{
-    background: linear-gradient(to right, var(--overlay-dark-pink) 50%, rgba(0,0,0,0.8)), 
-    url("../images/Hero2.jpg");
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    color: white;
-    min-height: 80vh;
+    min-height: 90vh;
   }
-  .hero-content{
-    position: relative;
-    top:auto;
-    transform: none;
-    max-width: 100%;
-  }  
+  .container {
+    padding: 2rem;
+    font-size:1.25rem;
+  }
+
+  .panel {
+    padding: 2em 1em;
+  }
 }
