@@ -292,7 +292,6 @@ textarea, input{
   background-color: white;
   border-radius: 20px;
   padding: 1em;
-  margin: 1em 0;
 }
 
 .panel{
@@ -424,12 +423,10 @@ Better for accessibility by showing focus styles only when appropiate*/
 
   .cards, .opportunities{
     grid-template-columns: repeat(3,1fr);
-    gap: 0 1rem;
   }
 
   .donate-grid{
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
   }
 }
 @media (max-width: 767px){
