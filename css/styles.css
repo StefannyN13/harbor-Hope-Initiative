@@ -18,8 +18,9 @@ body {
 Images scale within their containers - no unexpected gaps*/
 img {
   max-width: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
+  
 }
 
 /* Optional Basic List Cleanup
@@ -185,6 +186,7 @@ nav a{
     transform: none;
     max-width: 100%;
   }  
+
 
 /* MAIN */ 
 
