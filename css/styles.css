@@ -393,7 +393,7 @@ nav a:hover, nav a:focus{
   transform: translateY(-7px);
   box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
  }
- 
+
 /* Focus states */
 /* :focus-visible -> outline does not appear when mouse users interact with the elements.
 Better for accessibility by showing focus styles only when appropiate*/
@@ -430,6 +430,20 @@ Better for accessibility by showing focus styles only when appropiate*/
   color: white;
 }
 
+/*----------------------- Keyframe Animations --------------------*/
+
+@keyframes fadeIn{
+  from {
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.hero-content{
+  animation: fadeIn 0.5s ease-in;
+}
 /* --------------------------------------------------------------------
                          7) Responsiveness
 -------------------------------------------------------------------- */
